@@ -11,7 +11,7 @@ public class TestSport {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nTegemist on programmiga, mis kalkuleerib sinu nädala jooksul tehtud treeningute kaloreid.");
         System.out.println("Kaloreid on võimalik arvutada jägmiste spordialade korral: ");
-        System.out.println("võrkpall, jalgpall, pikamaajooks, pallimängud, ujumine");
+        System.out.println("võrkpall, jalgpall, pikamaajooks, korvpall, ujumine, kiirehüpits, aeglanehüpits, golf");
         System.out.println("Samuti on võimalik sisestada ainult jooksmiseid, et saada tagasisidet nädala jooksmistest.");
         System.out.println("\nSisestage T kui soovite treeninguid lisada ning J kui soovite ainult jooksmiseid lisada");
         String vastus = sc.nextLine();
@@ -26,7 +26,7 @@ public class TestSport {
 
 
     public static boolean kasOigeNimi(String ala){
-        if (ala.equals("pikamaajooks") || ala.equals("jalgpall") || ala.equals("võrkpall") || ala.equals("pallimängud") || ala.equals("ujumine"))
+        if (ala.equals("pikamaajooks") || ala.equals("jalgpall") || ala.equals("võrkpall") || ala.equals("pallimängud") || ala.equals("ujumine") || ala.equals("golf") || ala.equals("korvpall") || ala.equals("aeglanehüpits") || ala.equals("kiirehüpits"))
             return true;
         return false;
     }
@@ -55,7 +55,7 @@ public class TestSport {
 
         System.out.println("\nValisite programmi, mis kalkuleerib sinu nädala jooksul tehtud treeningute kaloreid.");
         System.out.println("Kaloreid on võimalik arvutada jägmiste spordialade korral: ");
-        System.out.println("võrkpall, jalgpall, pikamaajooks, pallimängud, ujumine");
+        System.out.println("võrkpall, jalgpall, pikamaajooks, korvpall, ujumine, kiirehüpits, aeglanehüpits, golf");
         spordialad.add(sisestatudAlaKontroll());
 
         System.out.println("Sisestage treeningu pikkus minutites: ");
@@ -92,6 +92,18 @@ public class TestSport {
                 treeningud.add(treening);
             } else if (spordialad.get(i).equals("ujumine")){
                 Spordialad treening = new Ujumine(spordialad.get(i), kestvused.get(i), kaal);
+                treeningud.add(treening);
+            } else if (spordialad.get(i).equals("aeglanehüpits")){
+                Spordialad treening = new AeglaneHüpits(spordialad.get(i), kestvused.get(i), kaal);
+                treeningud.add(treening);
+            } else if (spordialad.get(i).equals("golf")){
+                Spordialad treening = new Golf(spordialad.get(i), kestvused.get(i), kaal);
+                treeningud.add(treening);
+            } else if (spordialad.get(i).equals("kiirehüpits")){
+                Spordialad treening = new Kiirehüpits(spordialad.get(i), kestvused.get(i), kaal);
+                treeningud.add(treening);
+            } else if (spordialad.get(i).equals("korvpall")){
+                Spordialad treening = new Korvpall(spordialad.get(i), kestvused.get(i), kaal);
                 treeningud.add(treening);
             }
         }

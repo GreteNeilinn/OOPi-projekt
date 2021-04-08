@@ -11,4 +11,5 @@ public class Hüpits extends Spordialad {
         double põletatudKaloreidMin = kestusMin * (METhüpits*3.5*kaal)/200;
         return Math.round(põletatudKaloreidMin);
     }
+
 }

@@ -1,4 +1,3 @@
-package com.company.tree;
 
 public class Jalgpall extends Pallimängud{
 

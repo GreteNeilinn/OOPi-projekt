@@ -1,4 +1,4 @@
-package com.company.tree;
+
 
 public class Pallimängud extends Spordialad{
 
