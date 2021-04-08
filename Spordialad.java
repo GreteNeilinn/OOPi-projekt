@@ -1,3 +1,5 @@
+package com.company.tree;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,15 @@ public class Spordialad {
         this.nimetus = nimetus;
         this.kestusMin = kestusMin;
         this.kaal = kaal;
+    }
+
+    public Spordialad(double kaal, int kestusMin) { //konstruktor jooksude jaoks
+        this.kestusMin = kestusMin;
+        this.kaal = kaal;
+    }
+
+    public int getKestusMin() {
+        return kestusMin;
     }
 
     public List<Integer> NädalaMahud() {
@@ -38,9 +49,8 @@ public class Spordialad {
 
     @Override
     public String toString() {
-        return "Seekordne treening=" +
-                " treeningu nimetus: '" + nimetus +
-                "', treeningu kestus: " + kestusMin + " min" +
+        return "treeningu tüüp: " + nimetus +
+                ", treeningu kestus: " + kestusMin + " min" +
                 ", põletasid " + arvutaKaloreid()  + " kCal" +".";
     }
 }

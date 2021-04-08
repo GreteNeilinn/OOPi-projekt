@@ -1,3 +1,5 @@
+package com.company.tree;
+
 public class Jalgpall extends Pallimängud{
 
     protected double METjalka = 7.0;

@@ -1,3 +1,5 @@
+package com.company.tree;
+
 public class Pallimängud extends Spordialad{
 
     protected double METpall = 4.2;
