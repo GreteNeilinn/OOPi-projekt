@@ -1,0 +1,31 @@
+SisestusvormiVigaErind.java
+ SisestusvormiVigaErind
+Jooksualad.java
+ Jooksualad
+Ujumine.java
+ Ujumine
+Võrkpall.java
+ Võrkpall
+AeglaneHüpits.java
+ AeglaneHüpits
+Golf.java
+ Golf
+Spordialad.java
+ Spordialad
+Jalgpall.java
+ Jalgpall
+Kiirehüpits.java
+ Kiirehüpits
+Pikamaajooks.java
+ Pikamaajooks
+Korvpall.java
+ Korvpall
+Hüpits.java
+ Hüpits
+Pallimängud.java
+ Pallimängud
+Gui_rühmatöö.java
+ Gui_rühmatöö
+ Gui_rühmatöö$1
+ Gui_rühmatöö$2
+ Gui_rühmatöö$3
