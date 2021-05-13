@@ -24,9 +24,13 @@ Hüpits.java
  Hüpits
 Pikamaajooks.java
  Pikamaajooks
+JooksuStatistika.java
+ JooksuStatistika
 Gui_rühmatöö.java
  Gui_rühmatöö
  Gui_rühmatöö$1
  Gui_rühmatöö$2
  Gui_rühmatöö$3
  Gui_rühmatöö$4
+ Gui_rühmatöö$5
+ Gui_rühmatöö$6

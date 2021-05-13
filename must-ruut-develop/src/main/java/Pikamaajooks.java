@@ -27,7 +27,7 @@ public class Pikamaajooks extends Spordialad{
     @Override
     public String toString() {
         return "Joostud vahemaa: " + km +
-                ", aeg minutites: " + kestusMin +
-                ", kaal: " + kaal;
+                " km, aeg minutites: " + kestusMin +
+                " min, kulutatud kalorid: " + arvutaKaloreid() + " cal";
     }
 }

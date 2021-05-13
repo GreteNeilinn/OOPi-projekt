@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -202,6 +203,8 @@ public class Gui_rühmatöö extends Application {
         // -------------------------------------     Statistika     ---------------------------------
 
 
+
+
         Text t = new Text("Jooksustatistika");
         t.setFont(Font.font("Sans serif", FontWeight.BOLD, FontPosture.REGULAR, 25));
         Text t2 = new Text("Valisite programmi, mis kalkuleerib \nsinu nädala jooksul tehtud jooksude statistikat.\nEt uut jooksu lisada vajuta nuppu 'Sisesta'.\nKomakohaga arvu kirjuta punktiga");
@@ -214,7 +217,13 @@ public class Gui_rühmatöö extends Application {
         TextField kirjutaKM = new TextField();
         Text kuiSisestatud = new Text("");
         Button statSisestaNupp = new Button("Sisesta");
+        Button vaataJookseNupp = new Button("Vaata jookse");
+        Button statsNupp = new Button("Arvuta jooksustatistikat");
+        Button tagasiNupp = new Button("Tagasi");
 
+
+
+        //sisesta jooks nupp
         statSisestaNupp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -243,6 +252,75 @@ public class Gui_rühmatöö extends Application {
         });
 
 
+
+        //vaata sisestatud jookse nupp
+        vaataJookseNupp.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ListView<String> listView = new ListView<>();
+                ObservableList<String> jooksulist = FXCollections.observableArrayList();
+                for (int i = 0; i < jooksud.size(); i++) {
+                    jooksulist.add(jooksud.get(i).toString());
+                }
+                listView.setItems(jooksulist);
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(peaLava);
+                listView.getItems().addAll();
+
+                VBox dialogVbox = new VBox(listView);
+                dialogVbox.getChildren().addAll();
+                Scene dialogScene = new Scene(dialogVbox, 450, 500);
+                dialog.setScene(dialogScene);
+                dialog.show();
+            }
+
+        });
+
+
+        //vaata statistikat nupp
+        statsNupp.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Group juur3 = new Group();
+                JooksuStatistika jooksuStatistika = new JooksuStatistika(jooksud);
+                Text pealkiri = new Text("Statistika");
+                pealkiri.setFont(Font.font("Sans serif", FontWeight.BOLD, FontPosture.REGULAR, 25));
+                Text pikimJooks = new Text(jooksuStatistika.pikimJooks());
+                Text keskmineVahemaa = new Text(jooksuStatistika.keskmineVahemaa());
+                Text keskmineKiirus = new Text(jooksuStatistika.keskmineKiirus());
+                Text kauem = new Text(jooksuStatistika.kõigeKauem());
+                Text kiireim = new Text(jooksuStatistika.kiireimKiirus());
+
+                pealkiri.setLayoutX(150);
+                pealkiri.setLayoutY(80);
+                pealkiri.setTextAlignment(TextAlignment.CENTER);
+                pikimJooks.setLayoutX(20);
+                pikimJooks.setLayoutY(130);
+                kauem.setLayoutX(20);
+                kauem.setLayoutY(160);
+                keskmineVahemaa.setLayoutX(20);
+                keskmineVahemaa.setLayoutY(190);
+                keskmineKiirus.setLayoutX(20);
+                keskmineKiirus.setLayoutY(220);
+                kiireim.setLayoutX(20);
+                kiireim.setLayoutY(250);
+
+                juur3.getChildren().addAll(pealkiri, pikimJooks, keskmineVahemaa, keskmineKiirus, kauem, kiireim);
+
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(peaLava);
+
+                Scene dialogScene = new Scene(juur3, 450, 350);
+                dialog.setScene(dialogScene);
+                dialog.show();
+            }
+
+        });
+
+
         t.setLayoutX(150);
         t.setLayoutY(80);
         t2.setLayoutX(100);
@@ -264,7 +342,13 @@ public class Gui_rühmatöö extends Application {
         kuiSisestatud.setLayoutY(368);
         statSisestaNupp.setLayoutX(210);
         statSisestaNupp.setLayoutY(390);
-        juur2.getChildren().addAll(t, t2, kaaluTekst, kirjutaKaal, aegTekst, kirjutaAeg, kmTekst, kirjutaKM, kuiSisestatud,statSisestaNupp);
+        vaataJookseNupp.setLayoutX(60);
+        vaataJookseNupp.setLayoutY(430);
+        statsNupp.setLayoutX(170);
+        statsNupp.setLayoutY(430);
+        tagasiNupp.setLayoutX(340);
+        tagasiNupp.setLayoutY(430);
+        juur2.getChildren().addAll(t, t2, kaaluTekst, kirjutaKaal, aegTekst, kirjutaAeg, kmTekst, kirjutaKM, kuiSisestatud,statSisestaNupp, vaataJookseNupp, statsNupp, tagasiNupp);
 
 
 
@@ -284,6 +368,9 @@ public class Gui_rühmatöö extends Application {
 
         //  statistika valimine
         jooksuStat.setOnAction(e -> peaLava.setScene(stseen2));
+
+        //tagasi minemiseks nupp
+        tagasiNupp.setOnAction(e -> peaLava.setScene(stseen1));
     }
 
     public static void main(String[] args) {

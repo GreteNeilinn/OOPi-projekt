@@ -1,5 +1,5 @@
 
-/*import java.util.List;
+import java.util.List;
 
 public class JooksuStatistika {
 
@@ -9,7 +9,8 @@ public class JooksuStatistika {
         this.jooksmised = jooksmised;
     }
 
-    public void pikimJooks(){  //Leiab kõige pikema vahemaaga jooksu
+    public String pikimJooks(){  //Leiab kõige pikema vahemaaga jooksu
+        String tulemus;
         double max = 0;
         int indeks = 0;
         for (int i = 0; i < jooksmised.size(); i++) {
@@ -18,18 +19,22 @@ public class JooksuStatistika {
                 indeks = i;
             }
         }
-        System.out.println("Pikim jooks oli " + max + " km ajaga " + jooksmised.get(indeks).kestusMin + " min");
+        tulemus = "Pikim jooks oli " + max + " km ajaga " + jooksmised.get(indeks).kestusMin + " min";
+        return tulemus;
     }
 
-    public void keskmineVahemaa(){  //Arvutab kõikide jooksude keskmise vahemaa
+    public String keskmineVahemaa(){  //Arvutab kõikide jooksude keskmise vahemaa
+        String tulemus;
         double summa = 0;
         for (int i = 0; i < jooksmised.size(); i++) {
             summa += jooksmised.get(i).km;
         }
-        System.out.println("Keskmine vahemaa: " + Math.round((summa/jooksmised.size())*100.0)/100.0 + " km");
+        tulemus = "Keskmine vahemaa: " + Math.round((summa/jooksmised.size())*100.0)/100.0 + " km";
+        return tulemus;
     }
 
-    public void kõigeKauem(){  // Leiab jooksu, mis on kõige kauem kestnud
+    public String kõigeKauem(){  // Leiab jooksu, mis on kõige kauem kestnud
+        String tulemus;
         int max = 0;
         int indeks = 0;
         for (int i = 0; i < jooksmised.size(); i++) {
@@ -38,19 +43,23 @@ public class JooksuStatistika {
                 indeks = i;
             }
         }
-        System.out.println("Kõige kauem joostud aeg: " + max + " min, mille jooksul jõudsid joosta " + jooksmised.get(indeks).km + " km");
+        tulemus = "Kõige kauem joostud aeg: " + max + " min, mille jooksul jõudsid joosta " + jooksmised.get(indeks).km + " km";
+        return tulemus;
     }
 
-    public void keskmineKiirus(){ //Arvutab kõikide jooksude keskmise kiiruse
+    public String keskmineKiirus(){ //Arvutab kõikide jooksude keskmise kiiruse
+        String tulemus;
         double summa = 0.0;
         for (int i = 0; i < jooksmised.size(); i++) {
             summa += jooksmised.get(i).keskmineKiirus();
         }
         double keskKiirus = Math.round((summa/jooksmised.size())*100.0)/100.0;
-        System.out.println("Keskmine jooksmiskiirus: " + keskKiirus + " min/km");
+        tulemus = "Keskmine jooksmiskiirus: " + keskKiirus + " min/km";
+        return tulemus;
     }
 
-    public void kiireimKiirus(){ //Leiab jooksu, mille keskmine kiirus oli kõige kiirem
+    public String kiireimKiirus(){ //Leiab jooksu, mille keskmine kiirus oli kõige kiirem
+        String tulemus;
         double min = 20.0;
         int indeks = 0;
         for (int i = 0; i < jooksmised.size(); i++) {
@@ -59,6 +68,7 @@ public class JooksuStatistika {
                 indeks = i;
             }
         }
-        System.out.println("Kiireim ühe jooksu keskmine kiirus: " + min + " min/km, vahemaa: " + jooksmised.get(indeks).km + " km");
+        tulemus = "Kiireim ühe jooksu keskmine kiirus: " + min + " min/km, vahemaa: " + jooksmised.get(indeks).km + " km";
+        return tulemus;
     }
-}*/
+}
