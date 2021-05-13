@@ -39,7 +39,7 @@ public class Gui_rühmatöö extends Application {
 
         Text tervitus = new Text("Tere tulemast Sinu treeningpäevikusse!");
         tervitus.setFont(Font.font("Sans serif", FontWeight.BOLD, FontPosture.REGULAR, 25));
-        Text juhend = new Text(" Programmi kasutamine on suhteliselt lihtne! Treeningu \nsisestamiseks sisesta allolevasse kasti oma treeningu andmed kujul \n\"kuupäev; kestusMinutites; sinuKaal\". \nKuupäeva sisestada nii: aaaa-kk-pp.\nVarasemate treeningute vaatamiseks kliki vastavale nupul.");
+        Text juhend = new Text(" Programmi kasutamine on suhteliselt lihtne! Treeningu \nsisestamiseks sisesta allolevasse kasti oma treeningu andmed kujul \n\"kuupäev; kestusMinutites; sinuKaal\". \nKuupäeva sisestada nii: aaaa-kk-pp.\n Kestuse ja kaalu ette jäta tühik.\nVarasemate treeningute vaatamiseks kliki vastavale nupul.");
         juhend.setFont(Font.font("Sans serif", FontWeight.NORMAL, FontPosture.REGULAR, 14));
 
         ObservableList<String> spordialad = FXCollections.observableArrayList(
@@ -69,7 +69,7 @@ public class Gui_rühmatöö extends Application {
 
             private void sisestaFaili(String treening, Object sport) throws SisestusvormiVigaErind, IOException {
                 try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("treeningud.txt", true), "UTF-8"))) {
-                    if (treening.split("; ").length != 3){
+                    if (treening.split(";").length != 3){
                         throw new SisestusvormiVigaErind("Valesti sisestatud\nSisesta korrektne treening!");
                     }
                     else {
